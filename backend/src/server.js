@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const routes = require('./routes');
 
@@ -15,6 +16,8 @@ mongoose.connect('mongodb+srv://user1:user1@cluster0-hu4dh.mongodb.net/semana-om
 // app.get('/', (req, res) => {
 //     return res.json( { message: "Hello World" } );
 // })
+app.use(cors())
+// app.use(cors({ origin: 'http://localhost:3333' })) -> restrição de acesso
 app.use(express.json());
 app.use(routes);
 
